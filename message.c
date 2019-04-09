@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <message.h>
+#include <libhunter-message/message.h>
 
 void hunter_message(const char *parent)
 {

@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.0)
-project(libhunter-message LANGUAGES C CXX VERSION 1.2.3)
+project(libhunter-message LANGUAGES C CXX VERSION 1.0.0)
 
-add_library(hunter-message message.h message.c)
+add_library(hunter-message message.c)
 
 target_include_directories(
     hunter-message
     PUBLIC
-    "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>"
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>"
 )
 
 # Installation (https://github.com/forexample/package-example) {
@@ -48,7 +48,7 @@ install(
 )
 
 install(
-    FILES message.h
+    DIRECTORY include/libhunter-message
     DESTINATION "${include_install_dir}"
 )
 
