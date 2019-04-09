@@ -1,18 +1,20 @@
 cmake_minimum_required(VERSION 3.0)
 project(libhunter-message LANGUAGES C CXX VERSION 1.0.0)
 
+include(GNUInstallDirs)
+
 add_library(hunter-message message.c)
 
 target_include_directories(
     hunter-message
     PUBLIC
-    "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>"
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
 )
 
 # Installation (https://github.com/forexample/package-example) {
 
 set(config_install_dir "lib/cmake/${PROJECT_NAME}")
-set(include_install_dir "include")
+set(include_install_dir "${CMAKE_INSTALL_FULL_INCLUDEDIR}")
 
 set(generated_dir "${CMAKE_CURRENT_BINARY_DIR}/generated")
 
@@ -41,9 +43,9 @@ configure_package_config_file(
 install(
     TARGETS hunter-message
     EXPORT "${TARGETS_EXPORT_NAME}"
-    LIBRARY DESTINATION "lib"
-    ARCHIVE DESTINATION "lib"
-    RUNTIME DESTINATION "bin"
+    LIBRARY DESTINATION "${CMAKE_INSTALL_FULL_LIBDIR}"
+    ARCHIVE DESTINATION "${CMAKE_INSTALL_FULL_LIBDIR}"
+    RUNTIME DESTINATION "${CMAKE_INSTALL_FULL_BINDIR}"
     INCLUDES DESTINATION "${include_install_dir}"
 )
 
