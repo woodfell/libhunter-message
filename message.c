@@ -3,5 +3,5 @@
 
 void hunter_message(const char *parent)
 {
-  printf("hunter_message v1 (%s)\n", parent ?: "(none)");
+  printf("hunter_message v1.0.0 (%s)\n", parent ?: "(none)");
 }
