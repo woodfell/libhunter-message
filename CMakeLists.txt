@@ -14,7 +14,7 @@ target_include_directories(
 # Installation (https://github.com/forexample/package-example) {
 
 set(config_install_dir "lib/cmake/${PROJECT_NAME}")
-set(include_install_dir "${CMAKE_INSTALL_FULL_INCLUDEDIR}")
+set(include_install_dir "${CMAKE_INSTALL_INCLUDEDIR}")
 
 set(generated_dir "${CMAKE_CURRENT_BINARY_DIR}/generated")
 
@@ -43,9 +43,9 @@ configure_package_config_file(
 install(
     TARGETS hunter-message
     EXPORT "${TARGETS_EXPORT_NAME}"
-    LIBRARY DESTINATION "${CMAKE_INSTALL_FULL_LIBDIR}"
-    ARCHIVE DESTINATION "${CMAKE_INSTALL_FULL_LIBDIR}"
-    RUNTIME DESTINATION "${CMAKE_INSTALL_FULL_BINDIR}"
+    LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+    ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+    RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
     INCLUDES DESTINATION "${include_install_dir}"
 )
 
