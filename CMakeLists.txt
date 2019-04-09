@@ -14,12 +14,12 @@ set(SRCS message.c)
 set(HDRS include/libhunter-message/message.h)
 
 add_library(hunter-message ${SRCS})
-target_include_directories(hunter-message PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(hunter-message PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 install(TARGETS hunter-message
     EXPORT "${TARGETS_EXPORT_NAME}"
     ARCHIVE DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR}
-    INCLUDES DESTINATION ${CMAKE_INSTALL_FULL_INCLUDE_DIR}/libhunter-message
+    INCLUDES DESTINATION ${CMAKE_INSTALL_FULL_INCLUDE_DIR}
     )
 install(
     DIRECTORY "include/libhunter-message"
